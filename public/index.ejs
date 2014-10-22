@@ -1,0 +1,34 @@
+<script type="text/x-handlebars">
+  <h1>Dartz</h1>
+
+  {{outlet}}
+</script>
+
+<script type="text/x-handlebars" data-template-name="index">
+  <h3>Players</h3>
+  {{partial "addPlayer"}}
+
+  <div class="players-list">
+    {{#each player in arrangedContent}}
+      <div><button class="small danger" {{action 'remove' player}}>Remove</button> {{player.id}}</div>
+    {{/each}}
+  </div>
+
+  <button {{action 'startPlaying'}}>Start Playing</button>
+</script>
+
+<script type="text/x-handlebars" data-template-name="scoreCard">
+  <h3>Score Card</h3>
+  <div id="current-player">{{id}}</div>
+</script>
+
+<script type="text/x-handlebars" data-template-name="_addPlayer">
+  {{#if addFormVisible}}
+    <h3>Add Player</h3>
+    {{input action="addPlayer" valueBinding=newPlayerName on="enter"}}
+
+    <button {{action 'hideAddForm'}}>Done</button>
+  {{else}}
+    <button {{action 'showAddForm'}}>Add Players</button>
+  {{/if}}
+</script>

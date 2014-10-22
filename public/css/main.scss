@@ -1,0 +1,68 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
+
+@import '../../node_modules/node-bourbon/assets/stylesheets/bourbon';
+@import '../../node_modules/node-neat/assets/stylesheets/neat';
+
+/* colors */
+$white: #fff;
+$grey: #ccc;
+$green: #B7F95C;
+$pink: #FF2861;
+$blue: #0099CC;
+$black: #000004;
+
+* {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.hidden { display: none; }
+
+@mixin defineColor($color) {
+  background-color: $color;
+  border-color: darken($color, 30%);
+}
+
+.success {
+  @include defineColor($green);
+}
+.info {
+  @include defineColor($blue);
+}
+.danger {
+  @include defineColor($pink);
+}
+.default {
+  @include defineColor($grey);
+}
+
+button {
+  padding: 10px 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+  &:focus { outline: none; border-width: 2px; }
+
+  &.small {
+    padding: 4px 2px;
+  }
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.players-list {
+  margin: 10px;
+}
+
+#score-card {
+  display: none;
+}
+
+.score-buttons {
+  button { width: 100%; }
+  button#submit-score { margin-top: 10px; }
+}

@@ -1,0 +1,57 @@
+function addPlayers(playersArray) {
+  playersArray = _.uniq(playersArray);
+  _.forEach(playersArray, function(p) {
+    addPlayer(p);
+  });
+}
+
+$(function() {
+  var addPlayerBtn = '#add-player';
+  var pickPlayers = '#pick-players';
+  var addPlayerField = '<input type="text" placeholder="Pat Doe">';
+
+  var scoreCard = '#score-card';
+
+  $(addPlayerBtn).click(function(e) {
+    e.preventDefault();
+    var $inputs = $(pickPlayers + ' form').children('.players');
+    if ($inputs.children('input:last').val() !== '') {
+      $inputs.append(addPlayerField);
+      $inputs.children('input:last').focus();
+    } else {
+      $inputs.children('input:last').focus();
+    }
+  });
+
+  $(pickPlayers).submit(function(e) {
+    e.preventDefault();
+
+    $(pickPlayers +' input').each(function() {
+      var val = $(this).val();
+      if (_.isEmpty(val)) return;
+
+      addPlayer(val);
+    });
+  });
+
+  function showScoreCard(players) {
+    _.forEach(players, function(player) {
+      $(scoreCard).children('.players').append('<li>'+ player +'</li>');
+    });
+
+    $(scoreCard).show();
+  }
+
+  players.on('value', function(p) {
+    var playersHash = p.val();
+    var playerNames = _.keys(playersHash);
+
+    if (playerNames.length >= 2) {
+      $(pickPlayers).hide();
+      // addPlayers(players);
+      showScoreCard(playerNames);
+    } else {
+      alert('You need at least 2 players to play!');
+    }
+  });
+});
