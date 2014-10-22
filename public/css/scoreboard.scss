@@ -1,0 +1,44 @@
+body{
+  font-family: "Helvetica";
+  text-align: center;
+  padding: 10px 20px 0;
+  background: #f4f4f7;
+  color: #444;
+  margin: 0;
+}
+
+h1{
+  font-size: 65px;
+  line-height: 1.2em;
+  border-bottom: #CCC solid 1px;
+  padding: 0;
+}
+
+h3{
+  font-weight: 300;
+}
+
+table {
+  width: 100%;
+}
+
+tr {
+  font-size: 25px;
+}
+
+td {
+  border-top: 1px solid #000;
+  padding: 5px;
+}
+
+.fa-plus-circle {
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+  trasform: rotate(45deg);
+}
+
+.fa-minus {
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+  trasform: rotate(45deg);
+}
